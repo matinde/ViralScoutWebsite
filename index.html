@@ -50,6 +50,10 @@
             [x-cloak] { 
                 display: none !important; 
             }
+            /* Optional: Add smooth scrolling for anchor links */
+            html {
+                scroll-behavior: smooth;
+            }
         </style>
         <!-- Add Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,12 +62,21 @@
     </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm" x-data="{ isOpen: false }">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <img src="viralscoutwebsitelogo.png" alt="ViralScout Logo" style="height: 60px;">
                 </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-600" @click="isOpen = true">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="text-gray-600 hover:text-purple-600">Features</a>
                     <a href="#demo" class="text-gray-600 hover:text-purple-600">Demo</a>
@@ -72,6 +85,43 @@
                     <button class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700">
                         Get Started
                     </button>
+                </div>
+
+                <!-- Mobile Menu Overlay -->
+                <div 
+                    x-show="isOpen" 
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="translate-x-full"
+                    x-transition:enter-end="translate-x-0"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="translate-x-0"
+                    x-transition:leave-end="translate-x-full"
+                    class="fixed top-0 left-0 right-0 bottom-0 w-full h-screen gradient-bg transform z-50 md:hidden"
+                    @click.away="isOpen = false"
+                    x-cloak
+                >
+                    <!-- Mobile Menu Content -->
+                    <div class="flex flex-col h-full">
+                        <!-- Close Button -->
+                        <div class="flex justify-end p-6">
+                            <button class="text-white" @click="isOpen = false">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Menu Items -->
+                        <div class="flex flex-col space-y-6 px-6 pt-8">
+                            <a href="#features" @click="isOpen = false" class="text-white text-2xl font-display">Features</a>
+                            <a href="#demo" @click="isOpen = false" class="text-white text-2xl font-display">Demo</a>
+                            <a href="#pricing" @click="isOpen = false" class="text-white text-2xl font-display">Pricing</a>
+                            <a href="#faq" @click="isOpen = false" class="text-white text-2xl font-display">FAQ</a>
+                            <button class="bg-white text-primary-DEFAULT px-6 py-3 rounded-full mt-4 font-display">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,7 +166,7 @@
                     </div>
                 </div>
                 <div class="md:w-1/2 mt-12 md:mt-0">
-                    <img src="hero.png" alt="ViralScout Dashboard" style="height: 550px;">
+                    <img src="hero.png" alt="ViralScout Dashboard" class="h-[550px] max-h-[550px] w-auto object-contain">
                 </div>
             </div>
         </div>
