@@ -153,8 +153,8 @@
                         Engage. <br>
                         Grow.
                     </h1>
-                    <p class="font-body text-xl mb-8 text-purple-100 text-center max-w-lg mx-auto">
-                        By engaging with viral content before it explodes, you can grow your audience and boost your visibility.
+                    <p class="font-body text-2xl mb-8 text-purple-100 text-center max-w-lg mx-auto">
+                        Find trending conversations early, engage and get insane visibility! Engagement is the fastest way to grow your audience.
                     </p>
 
                     <!-- add a div with the icons of the platforms: x, linkedin and reddit -->
@@ -188,27 +188,62 @@
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section id="demo" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">See ViralScout in Action</h2>
-            <div class="bg-purple-100 rounded-2xl p-8 flex justify-center">
-                <img src="/api/placeholder/800/450" alt="ViralScout Demo" class="rounded-lg shadow-lg">
+  <!-- Demo Section -->
+<section id="demo" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-16">See ViralScout in Action</h2>
+        
+        <div class="space-y-16">
+            <!-- X Demo -->
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-3/5 bg-white rounded-2xl p-8 shadow-lg">
+                    <img src="xdemo.gif" alt="X Demo" class="rounded-lg w-full h-auto">
+                </div>
+                <div class="w-full md:w-2/5">
+                    <h3 class="text-2xl font-semibold mb-4">X (Twitter) Analysis</h3>
+                    <p class="text-gray-600 text-lg">Track viral trends and engagement metrics on X in real-time. Our advanced algorithms analyze hashtags, engagement rates, and audience sentiment to help you understand what content resonates with your audience.</p>
+                </div>
+            </div>
+
+            <!-- LinkedIn Demo -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center mt-20">
+                <div class="w-full md:w-3/5 bg-white rounded-2xl p-8 shadow-lg">
+                    <img src="linkedindemo.gif" alt="LinkedIn Demo" class="rounded-lg w-full h-auto">
+                </div>
+                <div class="w-full md:w-2/5">
+                    <h3 class="text-2xl font-semibold mb-4">LinkedIn Insights</h3>
+                    <p class="text-gray-600 text-lg">Optimize your professional content strategy with our LinkedIn analytics. Monitor post performance, identify industry trends, and understand what drives engagement in the professional networking space.</p>
+                </div>
+            </div>
+
+            <!-- Reddit Demo -->
+            <div class="flex flex-col md:flex-row gap-12 items-center mt-20">
+                <div class="w-full md:w-3/5 bg-white rounded-2xl p-8 shadow-lg">
+                    <img src="xdemo.gif" alt="Reddit Demo" class="rounded-lg w-full h-auto">
+                </div>
+                <div class="w-full md:w-2/5">
+                    <h3 class="text-2xl font-semibold mb-4">Reddit Community Analysis</h3>
+                    <p class="text-gray-600 text-lg">Dive deep into Reddit communities and discover what makes content go viral. Track subreddit trends, analyze user engagement patterns, and identify the best times to post for maximum visibility.</p>
+                </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Creator Statement -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-3xl font-bold mb-8">Why I Created ViralScout</h2>
                 <div class="relative">
-                    <img src="/api/placeholder/120/120" alt="Creator" class="rounded-full mx-auto mb-6">
+                    <img src="vince.jpg" alt="Creator" class="rounded-full mx-auto mb-6">
                     <p class="text-xl text-gray-600 mb-6">
-                        "As a content creator, I always struggled to time my engagement perfectly. I built ViralScout to solve this problem, helping creators like you catch the wave of viral content at exactly the right moment."
+                        "
+                        As a content creator, I always struggled to time my engagement perfectly. I built ViralScout to solve this problem, helping creators like you catch the wave of viral content at exactly the right moment.
+                        One of the true ways of growing visibility and engagement is to get the right conversations at the right time. All our extensions are built to analyze growing conversations so that you can engage with the right people at the right time.
+                        We are always iterating to make ViralScout even better for creators like you.
+                        "
                     </p>
-                    <p class="text-purple-600 font-semibold">- John Creator</p>
+                    <p class="text-purple-600 font-semibold">- Vince</p>
                 </div>
             </div>
         </div>
@@ -370,7 +405,55 @@
                             x-show="selected === 2"
                             class="p-6 pt-0 text-gray-600"
                         >
-                            Currently, ViralScout supports Twitter, Instagram, and TikTok. We're constantly working on adding support for more platforms.
+                            Currently, ViralScout supports X (Twitter), LinkedIn, and Reddit. We're constantly working on adding support for more platforms.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="border-2 border-purple-100 rounded-lg">
+                        <button
+                            @click="selected !== 3 ? selected = 3 : selected = null"
+                            class="flex justify-between items-center w-full p-6"
+                        >
+                            <span class="font-semibold">Does ViralScout track my personal data?</span>
+                            <span class="transform transition-transform" :class="{'rotate-180': selected === 3}">▼</span>
+                        </button>
+                        <div
+                            x-show="selected === 3"
+                            class="p-6 pt-0 text-gray-600"
+                        >
+                            We do not track personal data nor do we keep personal data. Your data remains in your device at all times.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="border-2 border-purple-100 rounded-lg">
+                        <button
+                            @click="selected !== 4 ? selected = 4 : selected = null"
+                            class="flex justify-between items-center w-full p-6"
+                        >
+                            <span class="font-semibold">How does ViralScout get the data?</span>
+                            <span class="transform transition-transform" :class="{'rotate-180': selected === 4}">▼</span>
+                        </button>
+                        <div
+                            x-show="selected === 4"
+                            class="p-6 pt-0 text-gray-600"
+                        >
+                            When you browse, we see what you see, but we add analytics to give you how fast a conversation is growing by analysing the speed of engagement.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="border-2 border-purple-100 rounded-lg">
+                        <button
+                            @click="selected !== 5 ? selected = 5 : selected = null"
+                            class="flex justify-between items-center w-full p-6"
+                        >
+                            <span class="font-semibold">Do I need to worry about my privacy?</span>
+                            <span class="transform transition-transform" :class="{'rotate-180': selected === 5}">▼</span>
+                        </button>
+                        <div
+                            x-show="selected === 5"
+                            class="p-6 pt-0 text-gray-600"
+                        >
+                            No, we do not keep or share your browsing history. We do not store personal information on our servers from as you browse. You only need an authorized key to start using the extensions.
                         </div>
                     </div>
                 </div>
