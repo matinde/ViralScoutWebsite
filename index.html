@@ -179,7 +179,10 @@
                         <a href="#" class="bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 flex items-center justify-center">
                             Install Extensions
                         </a>
-                        <button class="border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-purple-600">
+                        <button 
+                            class="border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-purple-600"
+                            onclick="openVideoModal()"
+                        >
                             Watch Demo
                         </button>
                     </div>
@@ -222,7 +225,7 @@
             <!-- Reddit Demo -->
             <div class="flex flex-col md:flex-row gap-12 items-center mt-20">
                 <div class="w-full md:w-3/5 bg-white rounded-2xl p-8 shadow-lg">
-                    <img src="xdemo.gif" alt="Reddit Demo" class="rounded-lg w-full h-auto">
+                    <img src="redditdemo.gif" alt="Reddit Demo" class="rounded-lg w-full h-auto">
                 </div>
                 <div class="w-full md:w-2/5">
                     <h3 class="text-2xl font-semibold mb-4">Reddit Community Analysis</h3>
@@ -505,4 +508,64 @@
             </div>
         </div>
     </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="hidden fixed inset-0 w-full h-full z-50 overflow-hidden bg-black bg-opacity-75 flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full">
+            <!-- Close button -->
+            <button 
+                class="absolute -top-12 right-0 text-white hover:text-gray-300"
+                onclick="closeVideoModal()"
+            >
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <!-- Video Container -->
+            <div class="relative pb-[56.25%] h-0 bg-black rounded-xl overflow-hidden">
+                <iframe 
+                    id="videoIframe"
+                    class="absolute top-0 left-0 w-full h-full"
+                    src=""
+                    title="ViralScout Demo Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this script -->
+    <script>
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            modal.classList.add('hidden');
+            iframe.src = ''; // Reset iframe src to stop video
+        }
+
+        // Close modal when clicking outside the video
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        // Open modal and set video
+        function openVideoModal() {
+            const iframe = document.getElementById('videoIframe');
+            iframe.src = 'https://www.youtube.com/embed/K-Y78Q_YLu8?autoplay=1';
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+    </script>
+</body>
 </html>
