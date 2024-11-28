@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://viralscout.xyz/sitemap.xml 
