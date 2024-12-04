@@ -19,4 +19,22 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-</urlset> 
+    <url>
+        <loc>https://viralscout.xyz/reddiscout/redditscout.html</loc>
+        <lastmod>2024-03-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://viralscout.xyz/linkedinscout/linkedinscout.html</loc>
+        <lastmod>2024-03-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://viralscout.xyz/twitterscout/twitterscout.html</loc>
+        <lastmod>2024-03-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
